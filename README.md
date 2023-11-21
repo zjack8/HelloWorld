@@ -5,6 +5,7 @@ This project serves as a learning tool for various programming languages.
 Includes code snippets and, in the future, algorithms for learning purposes
 
 ### Languages
+- Assembly
 - C
 - C++
 - Haskell
