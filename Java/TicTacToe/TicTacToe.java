@@ -18,12 +18,11 @@ public class TicTacToe {
 
         System.out.println("===============");
         while (!isWinner()) {
-
             nextTurn(turn++);
             printBoard();
+            System.out.println("===============");
         }
 
-        System.out.println("===============");
         System.out.println(getWinner());
     }
 
@@ -167,9 +166,6 @@ public class TicTacToe {
         System.out.println(board[1][0]+" | "+board[1][1]+" | "+board[1][2]);
         System.out.println("--+---+---");
         System.out.println(board[2][0]+" | "+board[2][1]+" | "+board[2][2]);
-
-        System.out.println("");
-        System.out.println("===============");
     }
 
     private static int getRandomNumberInRange(int min, int max) {
