@@ -6,9 +6,9 @@ public class TicTacToe {
     private static String[][] board = {{" ", " ", " "},
                                        {" ", " ", " "},
                                        {" ", " ", " "}};
-    private static String userTeam = " ";
-    private static String cpuTeam = " ";
-    private static String winner = " ";
+    private static String userTeam = "-";
+    private static String cpuTeam = "-";
+    private static String winner = "-";
 
     private static final Scanner SC = new Scanner(System.in);  
 
@@ -17,12 +17,14 @@ public class TicTacToe {
         int turn = chooseTeam();
 
         System.out.println("===============");
-        while (isGameOver()) {
+        while (!isWinner()) {
 
             nextTurn(turn++);
             printBoard();
         }
 
+        System.out.println("===============");
+        System.out.println(getWinner());
     }
 
     private static int chooseTeam() {
@@ -33,11 +35,11 @@ public class TicTacToe {
             if ("X".equals(input)) {
                 userTeam = "X";
                 cpuTeam = "O";
-                return -1;
+                return 0;
             } else if ("O".equals(input)) {
                 userTeam = "O";
                 cpuTeam = "X";
-                return 0;
+                return -1;
             } else {
                 System.out.println("Wrong Input! Try Again");
             }
@@ -60,7 +62,7 @@ public class TicTacToe {
                 System.out.print("Enter Position: ");
                 String stringPos = SC.nextLine();
                 int result = Integer.parseInt(stringPos);
-                if (applyIfValid(result)) {
+                if (applyIfValid(result, userTeam)) {
                     return;
                 }
             } catch (NumberFormatException e) {
@@ -73,19 +75,19 @@ public class TicTacToe {
         System.out.println("CPU's Response:");
         while (true) {
             int result = getRandomNumberInRange(1, 9);
-            if (applyIfValid(result)) {
+            if (applyIfValid(result, cpuTeam)) {
                 return;
             }
         }
     }
 
-    private static boolean applyIfValid(int pos) {
+    private static boolean applyIfValid(int pos, String team) {
         int count = 0;
-        for (int row = 1; row <= 3; row++) {
-            for (int column = 1; column <= 3; column++) {
+        for (int row = 0; row < 3; row++) {
+            for (int column = 0; column < 3; column++) {
                 count++;
                 if (count == pos && " ".equals(board[row][column])) {
-                    board[row][column] = userTeam;
+                    board[row][column] = team;
                     return true;
                 }
             }
@@ -93,13 +95,33 @@ public class TicTacToe {
         return false;
     }
 
-    private static boolean isGameOver() {
-        return checkRows(board) || checkColumns(board) || checkDiagonals(board) || isBoardFull(board);
+    private static String getWinner() {
+        if (winner.equals(userTeam)) {
+            return "The User Wins!!!";
+        } else if (winner.equals(cpuTeam)) {
+            return "The CPU Wins!!!";
+        } else {
+            return "There is no Winner!";
+        }
+    }
+
+    private static boolean isWinner() {
+        if (checkRows(board) || checkColumns(board) || checkDiagonals(board)) {
+            return true;
+        }
+
+        if (isBoardFull(board)) {
+            winner = "-";
+            return true;
+        }
+
+        return false;
     }
 
     private static boolean checkRows(String[][] board) {
         for (int i = 0; i < 3; i++) {
             if (board[i][0].equals(board[i][1]) && board[i][1].equals(board[i][2]) && !board[i][0].equals(" ")) {
+                winner = board[i][0];
                 return true;
             }
         }
@@ -109,6 +131,7 @@ public class TicTacToe {
     private static boolean checkColumns(String[][] board) {
         for (int i = 0; i < 3; i++) {
             if (board[0][i].equals(board[1][i]) && board[1][i].equals(board[2][i]) && !board[0][i].equals(" ")) {
+                winner = board[0][i];
                 return true;
             }
         }
@@ -116,8 +139,11 @@ public class TicTacToe {
     }
 
     private static boolean checkDiagonals(String[][] board) {
-        if ((board[0][0].equals(board[1][1]) && board[1][1].equals(board[2][2]) && !board[0][0].equals(" ")) ||
-            (board[0][2].equals(board[1][1]) && board[1][1].equals(board[2][0]) && !board[0][2].equals(" "))) {
+        if (board[0][0].equals(board[1][1]) && board[1][1].equals(board[2][2]) && !board[0][0].equals(" ")) {
+            winner = board[0][0];
+            return true;
+        } else if (board[0][2].equals(board[1][1]) && board[1][1].equals(board[2][0]) && !board[0][2].equals(" ")) {
+            winner = board[0][2];
             return true;
         }
         return false;
