@@ -19,7 +19,7 @@ Includes code snippets, games, and algorithms for learning purposes
 - TypeScript
 
 ### Note
-Feel free to clone this repository for yourself and get learning. :smile:
+Feel free to clone this repository for yourself. :smile:
 
 ````
 git clone https://github.com/zjack8/HelloWorld.git 
