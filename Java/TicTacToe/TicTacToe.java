@@ -81,11 +81,16 @@ public class TicTacToe {
     }
 
     private static boolean applyIfValid(int pos, String team) {
-        int count = 0;
+        // Map number pad positions to Tic Tac Toe board positions
+        int[][] positionMapping = {
+            {7, 8, 9},
+            {4, 5, 6},
+            {1, 2, 3}
+        };
+
         for (int row = 0; row < 3; row++) {
             for (int column = 0; column < 3; column++) {
-                count++;
-                if (count == pos && " ".equals(board[row][column])) {
+                if (positionMapping[row][column] == pos && " ".equals(board[row][column])) {
                     board[row][column] = team;
                     return true;
                 }
