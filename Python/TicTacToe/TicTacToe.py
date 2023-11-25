@@ -20,22 +20,23 @@ def main():
     
     print(getWinner())
 
-
 def chooseTeam():
     while True:
         team = input("Enter Team (X or O): ")
     
-        if "X" == team:
+        global userTeam
+        global cpuTeam
+
+        if team == "X":
             userTeam = "X"
             cpuTeam = "O"
-            return 0
-        elif "O" == team:
+            return -1
+        elif team == "O":
             userTeam = "O"
             cpuTeam = "X"
-            return -1
+            return 0
         else:
             print("Wrong Input! Try Again")
-
     
 def nextTurn(turn):
 
@@ -69,6 +70,7 @@ def cpuTurn():
 
 def applyIfValid(pos, team):
 
+    pos = int(pos)
     count = 0
     for row in range(0, 3, 1):
 
@@ -76,7 +78,7 @@ def applyIfValid(pos, team):
 
             count = count + 1
 
-            if count == pos and " " == board[row][column]:
+            if count == pos and board[row][column] == " ":
                 board[row][column] = team
                 return True
             
