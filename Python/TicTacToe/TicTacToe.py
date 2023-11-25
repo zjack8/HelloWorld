@@ -69,20 +69,24 @@ def cpuTurn():
             return
 
 def applyIfValid(pos, team):
-
     pos = int(pos)
-    count = 0
-    for row in range(0, 3, 1):
 
-        for column in range(0, 3, 1):
+    # Map number pad positions to Tic Tac Toe board positions
+    position_mapping = {
+        7: (0, 0), 8: (0, 1), 9: (0, 2),
+        4: (1, 0), 5: (1, 1), 6: (1, 2),
+        1: (2, 0), 2: (2, 1), 3: (2, 2)
+    }
 
-            count = count + 1
+    if pos in position_mapping:
+        row, column = position_mapping[pos]
 
-            if count == pos and board[row][column] == " ":
-                board[row][column] = team
-                return True
-            
+        if board[row][column] == " ":
+            board[row][column] = team
+            return True
+
     return False
+
 
 def getWinner():
 
@@ -96,6 +100,7 @@ def getWinner():
         return "There is no Winner!"
 
 def isWinner():
+    global winner  # Declare winner as a global variable
 
     if checkRows() or checkColumns() or checkDiagonals():
         return True
@@ -107,9 +112,9 @@ def isWinner():
     return False
 
 def checkRows():
+    global winner  # Declare winner as a global variable
 
-    for i in range (0, 3, 1):
-
+    for i in range(3):
         if board[i][0] == board[i][1] and board[i][1] == board[i][2] and not board[i][0] == " ":
             winner = board[i][0]
             return True
@@ -117,9 +122,9 @@ def checkRows():
     return False
 
 def checkColumns():
+    global winner  # Declare winner as a global variable
 
-    for i in range (0, 3, 1):
-
+    for i in range(3):
         if board[0][i] == board[1][i] and board[1][i] == board[2][i] and not board[0][i] == " ":
             winner = board[0][i]
             return True
@@ -127,6 +132,7 @@ def checkColumns():
     return False
 
 def checkDiagonals():
+    global winner  # Declare winner as a global variable
 
     if board[0][0] == board[1][1] and board[1][1] == board[2][2] and not board[0][0] == " ":
         winner = board[0][0]
