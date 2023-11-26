@@ -1,6 +1,6 @@
 ## Hello World Showcase
 
-Welcome to the Hello World Showcase! This project serves as a testament to the versatility and proficiency in various programming languages. Whether you're a beginner seeking examples or an experienced developer exploring different languages, this collection of simple programs, code snippets, games, and algorithms has something for everyone.
+Welcome to the Hello World Showcase! This project serves as a testament to the versatility and proficiency of various programming languages.
 
 ### About the Project
 
