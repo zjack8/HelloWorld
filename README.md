@@ -11,6 +11,7 @@ The Hello World Showcase is an ongoing project, continually evolving to encompas
 Navigate through the specific language directories to delve deeper into each language's showcase:
 
 - [Assembly](Assembly/README.md)
+- [Bash](Bash/README.md)
 - [C](C/README.md)
 - [C++](C++/README.md)
 - [Haskell](Haskell/README.md)
