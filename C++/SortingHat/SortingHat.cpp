@@ -51,6 +51,7 @@ int main(int argc, char* argv[]) {
     }
 
     // Extract the array elements from the second command-line argument
+    // If there is no second argument use the default array
     std::vector<int> arr;
     if (argc > 2) {
         std::string input = argv[2];
@@ -65,6 +66,7 @@ int main(int argc, char* argv[]) {
         arr = defaultArray;
     }
 
+    // Print original array
     std::cout << "Original array: ";
     printArray(arr);
 
@@ -84,7 +86,7 @@ int main(int argc, char* argv[]) {
     } else if (algorithm == "radixSort") {
         radixSort(arr, 0, arr.size() - 1);
     } else {
-        std::cerr << "Invalid algorithm. Supported algorithms: mergeSort, quickSort, bubleSort, selectionSort, insertionSort, heapSort, radixSort" << std::endl;
+        std::cerr << "Invalid algorithm. Supported algorithms: mergeSort, quickSort, bubbleSort, selectionSort, insertionSort, heapSort, radixSort" << std::endl;
         return 1;
     }
 
