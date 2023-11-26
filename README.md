@@ -4,7 +4,7 @@ Welcome to the Hello World Showcase! This project serves as a testament to the v
 
 ### About the Project
 
-The Hello World Showcase is an ongoing project, continually evolving to encompass a diverse range of programming languages. It aims to demonstrate the author's skills and expertise in each language through practical and illustrative examples. The inclusion of assembly, C, C++, Haskell, Java, JavaScript, Kotlin, Python, Ruby, Rust, Scala, and TypeScript reflects the breadth of knowledge and experience encapsulated in this repository.
+The Hello World Showcase is an ongoing project, continually evolving to encompass a diverse range of programming languages. It aims to demonstrate the author's skills and expertise in each language through practical and illustrative examples. The inclusion of Assembly, Bash, C, C++, Haskell, Java, JavaScript, Kotlin, Python, Ruby, Rust, Scala, and TypeScript reflects the breadth of knowledge and experience encapsulated in this repository.
 
 ### Languages Explored
 
