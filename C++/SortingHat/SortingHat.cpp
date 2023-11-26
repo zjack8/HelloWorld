@@ -2,6 +2,7 @@
 #include <vector>
 #include <sstream>
 #include <algorithm>
+#include <chrono>
 
 void printArray(const std::vector<int>& arr) {
     for (int num : arr) {
@@ -70,6 +71,9 @@ int main(int argc, char* argv[]) {
     std::cout << "Original array: ";
     printArray(arr);
 
+    // Start the timer
+    auto start_time = std::chrono::high_resolution_clock::now();
+
     // Determine which sorting algorithm to use and call the corresponding function
     if (algorithm == "mergeSort") {
         mergeSort(arr, 0, arr.size() - 1);
@@ -92,6 +96,15 @@ int main(int argc, char* argv[]) {
 
     std::cout << "Sorted array using " << algorithm << ": ";
     printArray(arr);
+
+    // Stop the timer
+    auto end_time = std::chrono::high_resolution_clock::now();
+
+    // Calculate the duration
+    auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
+
+    // Print the duration in microseconds
+    std::cout << "Time taken by code: " << duration.count() << " microseconds" << std::endl;
 
     return 0;
 }
