@@ -1,68 +1,93 @@
 
 def main
     # Initialise Game
-    turn = chooseTeam
+    turn = choose_team
 
     puts "==============="
-    while not isWinner
+    while not is_winner
         turn = turn + 1
-        nextTurn(turn)
-        printBoard
+        next_turn(turn)
+        print_board
         puts "==============="
     end
 
-    puts getWinner
+    puts get_winner
 end
 
-def chooseTeam
+def choose_team
     # TODO
 end
 
-def nextTurn(turn)
+def next_turn(turn)
     # TODO
 end
 
-def userTurn
+def user_turn
+   loop do
+     begin
+       print 'Enter Position: '
+       string_pos = gets.chomp
+       result = Integer(string_pos)
+       return if apply_if_valid(result, user_team)
+     rescue ArgumentError
+       puts 'Wrong Input! Try Again'
+     end
+   end
+ end
+ 
+ def cpu_turn
+   puts "CPU's Response:"
+   loop do
+     result = rand(1..9)
+     return if apply_if_valid(result, cpu_team)
+   end
+ end
+
+ def apply_if_valid(pos, team)
+   # Map number pad positions to Tic Tac Toe board positions
+   position_mapping = [
+     [7, 8, 9],
+     [4, 5, 6],
+     [1, 2, 3]
+   ]
+ 
+   (0..2).each do |row|
+     (0..2).each do |column|
+       if position_mapping[row][column] == pos && board[row][column] == ' '
+         board[row][column] = team
+         return true
+       end
+     end
+   end
+   false
+ end
+ 
+
+def get_winner
     # TODO
 end
 
-def cpuTurn
+def is_winner
     # TODO
 end
 
-def applyIfValid(pos, team)
+def check_rows
     # TODO
 end
 
-def getWinner
+def check_columns
     # TODO
 end
 
-def isWinner
+def check_diagonals
     # TODO
 end
 
-def checkRows
+def is_board_full
     # TODO
 end
 
-def checkColumns
-    # TODO
-end
-
-def checkDiagonals
-    # TODO
-end
-
-def isBoardFull
-    # TODO
-end
-
-def printBoard
-    # TODO
-end
-
-def getRandomNumberInRange(min, max)
+def print_board
     # TODO
 end
 
