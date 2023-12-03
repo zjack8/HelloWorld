@@ -24,13 +24,13 @@ def choose_team
 
 	while True
         puts "Enter Team (X or O): "
-				team = gets.chomp
+		team = gets.chomp
 
         if team == "X"
             user_team = "X"
             cpu_team = "O"
             return -1
-        elif team == "O"
+		elsif team == "O"
             user_team = "O"
             cpu_team = "X"
             return 0
