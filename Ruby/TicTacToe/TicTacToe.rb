@@ -21,7 +21,23 @@ def main
 end
 
 def choose_team
-	# TODO
+
+	while True
+        puts "Enter Team (X or O): "
+				team = gets.chomp
+
+        if team == "X"
+            user_team = "X"
+            cpu_team = "O"
+            return -1
+        elif team == "O"
+            user_team = "O"
+            cpu_team = "X"
+            return 0
+        else
+            print("Wrong Input! Try Again")
+		end
+	end
 end
 
 def next_turn(turn)
@@ -109,16 +125,13 @@ def check_diagonals
 end
 
 def print_board
+
     puts board[0][0]+" | "+board[0][1]+" | "+board[0][2]
     puts "--+---+---"
     puts board[1][0]+" | "+board[1][1]+" | "+board[1][2]
     puts "--+---+---"
     puts board[2][0]+" | "+board[2][1]+" | "+board[2][2]
 
-end
-
-def print_board
-    # TODO
 end
 
 # Execute main function
