@@ -1,4 +1,10 @@
 
+# define global variables
+$board = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]]
+$user_team = "-"
+$cpu_eam = "-"
+$winner = "-"
+
 def main
     # Initialise Game
     turn = chooseTeam
@@ -58,8 +64,12 @@ def isBoardFull
     # TODO
 end
 
-def printBoard
-    # TODO
+def print_board
+    puts board[0][0]+" | "+board[0][1]+" | "+board[0][2]
+    puts "--+---+---"
+    puts board[1][0]+" | "+board[1][1]+" | "+board[1][2]
+    puts "--+---+---"
+    puts board[2][0]+" | "+board[2][1]+" | "+board[2][2]
 end
 
 def getRandomNumberInRange(min, max)
