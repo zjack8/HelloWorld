@@ -10,7 +10,7 @@ def main
 	turn = choose_team
 
 	puts "==============="
-	while not is_winner
+	until is_winner
 		turn = turn + 1
 		next_turn(turn)
 		print_board
@@ -23,21 +23,19 @@ end
 def choose_team
 
 	loop do
-		begin
-			puts "Enter Team (X or O): "
-			team = gets.chomp
+		puts "Enter Team (X or O): "
+		team = gets.chomp
 
-			if team == "X"
-				user_team = "X"
-				cpu_team = "O"
-				return -1
-			elsif team == "O"
-				user_team = "O"
-				cpu_team = "X"
-				return 0
-			else
-				print("Wrong Input! Try Again")
-			end
+		if team == "X"
+			user_team = "X"
+			cpu_team = "O"
+			return -1
+		elsif team == "O"
+			user_team = "O"
+			cpu_team = "X"
+			return 0
+		else
+			print("Wrong Input! Try Again")
 		end
 	end
 end
@@ -52,15 +50,13 @@ end
 
 def user_turn
   	loop do
-		begin
-			print 'Enter Position: '
-			string_pos = gets.chomp
-			result = Integer(string_pos)
-			return if apply_if_valid(result, user_team)
+		print 'Enter Position: '
+		string_pos = gets.chomp
+		result = Integer(string_pos)
+		return if apply_if_valid(result, user_team)
 
-			rescue ArgumentError
-			puts 'Wrong Input! Try Again'
-		end
+		rescue ArgumentError
+		puts 'Wrong Input! Try Again'
 	end
 end
 
