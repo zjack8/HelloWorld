@@ -6,36 +6,38 @@ $cpu_eam = "-"
 $winner = "-"
 
 def main
-    # Initialise Game
-    turn = choose_team
+	# Initialise Game
+	turn = choose_team
 
-    puts "==============="
-    while not is_winner
-        turn = turn + 1
-        next_turn(turn)
-        print_board
-        puts "==============="
-    end
+	puts "==============="
+	while not is_winner
+		turn = turn + 1
+		next_turn(turn)
+		print_board
+		puts "==============="
+	end
 
-    puts get_winner
+	puts get_winner
 end
 
 def choose_team
 
-	while True
-        puts "Enter Team (X or O): "
-		team = gets.chomp
+	loop do
+		begin
+			puts "Enter Team (X or O): "
+			team = gets.chomp
 
-        if team == "X"
-            user_team = "X"
-            cpu_team = "O"
-            return -1
-		elsif team == "O"
-            user_team = "O"
-            cpu_team = "X"
-            return 0
-        else
-            print("Wrong Input! Try Again")
+			if team == "X"
+				user_team = "X"
+				cpu_team = "O"
+				return -1
+			elsif team == "O"
+				user_team = "O"
+				cpu_team = "X"
+				return 0
+			else
+				print("Wrong Input! Try Again")
+			end
 		end
 	end
 end
@@ -50,7 +52,7 @@ end
 
 def user_turn
   	loop do
-    	begin
+		begin
 			print 'Enter Position: '
 			string_pos = gets.chomp
 			result = Integer(string_pos)
@@ -102,35 +104,35 @@ end
 
 def is_winner
 	if winner == user_team
-        return "The User Wins!!!"
+		return "The User Wins!!!"
 
-    elsif winner == cpu_team
-        return "The CPU Wins!!!"
+	elsif winner == cpu_team
+		return "The CPU Wins!!!"
 
-    else
-        return "There is no Winner!"
+	else
+		return "There is no Winner!"
 	end
 end
 
 def check_rows
-    # TODO
+	# TODO
 end
 
 def check_columns
-    # TODO
+	# TODO
 end
 
 def check_diagonals
-    # TODO
+	# TODO
 end
 
 def print_board
 
-    puts board[0][0]+" | "+board[0][1]+" | "+board[0][2]
-    puts "--+---+---"
-    puts board[1][0]+" | "+board[1][1]+" | "+board[1][2]
-    puts "--+---+---"
-    puts board[2][0]+" | "+board[2][1]+" | "+board[2][2]
+	puts board[0][0]+" | "+board[0][1]+" | "+board[0][2]
+	puts "--+---+---"
+	puts board[1][0]+" | "+board[1][1]+" | "+board[1][2]
+	puts "--+---+---"
+	puts board[2][0]+" | "+board[2][1]+" | "+board[2][2]
 
 end
 
