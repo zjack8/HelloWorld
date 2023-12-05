@@ -111,15 +111,33 @@ def is_winner
 end
 
 def check_rows
-	# TODO
+	3.times do |i|
+		if board[i][0] == board[i][1] && board[i][1] == board[i][2] && !board[i][0].strip.empty?
+			winner = board[0][i]
+			return true
+		end
+	end
 end
 
 def check_columns
-	# TODO
+	3.times do |i|
+		if board[0][i] == board[1][i] && board[1][i] == board[2][i] && !board[0][i].strip.empty?
+			winner = board[0][i]
+			return true
+		end
+	end
 end
 
 def check_diagonals
-	# TODO
+
+	if board[0][0] == board[1][1] && board[1][1] == board[2][2] && !board[0][0].strip.empty?
+		winner = board[0][i]
+		return true
+
+	elsif board[0][2] == board[1][1] && board[1][1] == board[2][0] && !board[0][2].strip.empty?
+		winner = board[0][i]
+		return true
+	end
 end
 
 def print_board
