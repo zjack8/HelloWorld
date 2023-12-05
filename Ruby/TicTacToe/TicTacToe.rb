@@ -2,7 +2,7 @@
 # define global variables
 $board = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]]
 $user_team = "-"
-$cpu_eam = "-"
+$cpu_team = "-"
 $winner = "-"
 
 def main
@@ -99,21 +99,20 @@ end
 
 
 def is_winner
-	if winner == user_team
-		return "The User Wins!!!"
+	return true if check_rows || check_columns || check_diagonals
 
-	elsif winner == cpu_team
-		return "The CPU Wins!!!"
-
-	else
-		return "There is no Winner!"
+	if is_board_full
+	  winner = '-'
+	  return true
 	end
+	
+	return false	
 end
 
 def check_rows
 	3.times do |i|
 		if board[i][0] == board[i][1] && board[i][1] == board[i][2] && !board[i][0].strip.empty?
-			winner = board[0][i]
+			winner = board[i][0]
 			return true
 		end
 	end
@@ -122,7 +121,7 @@ end
 def check_columns
 	3.times do |i|
 		if board[0][i] == board[1][i] && board[1][i] == board[2][i] && !board[0][i].strip.empty?
-			winner = board[0][i]
+			winner = board[i][0]
 			return true
 		end
 	end
@@ -131,11 +130,11 @@ end
 def check_diagonals
 
 	if board[0][0] == board[1][1] && board[1][1] == board[2][2] && !board[0][0].strip.empty?
-		winner = board[0][i]
+		winner = board[0][0]
 		return true
 
 	elsif board[0][2] == board[1][1] && board[1][1] == board[2][0] && !board[0][2].strip.empty?
-		winner = board[0][i]
+		winner = board[0][2]
 		return true
 	end
 end
