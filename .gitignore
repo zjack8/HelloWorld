@@ -2,3 +2,6 @@
 *.class
 *.pdb
 *.jar
+*.o
+
+.vscode/*
