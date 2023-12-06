@@ -47,7 +47,8 @@ int main(int argc, char* argv[]) {
 	if (argc > 1) {
 		algorithm = argv[1];
 	} else {
-		std::cerr << "Usage: " << argv[0] << " algorithm \"num1 num2 num3 ...\"" << std::endl;
+		std::cerr << "Usage: *.exe algorithm \"num1 num2 num3 ...\"" << std::endl;
+		std::cerr << "For more use *.exe -help" << std::endl;
 		return 1;
 	}
 
@@ -65,6 +66,12 @@ int main(int argc, char* argv[]) {
 		}
 	} else {
 		arr = defaultArray;
+	}
+
+	if (algorithm == "-help") {
+		std::cerr << "Supported algorithms: mergeSort, quickSort, bubbleSort, selectionSort, insertionSort, heapSort, radixSort" << std::endl;
+		std::cerr << "Array: \"num1 num2 num3 ...\" or leave blank for default array" << std::endl;
+		return 1;
 	}
 
 	// Print original array
