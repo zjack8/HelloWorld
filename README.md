@@ -36,7 +36,7 @@ To explore the Hello World Showcase on your local machine, simply clone this rep
 git clone https://github.com/zjack8/HelloWorld.git
 ```
 
-Feel free to experiment with the code, contribute enhancements, or use it as a reference in your programming journey. Thank you for visiting the Hello World Showcase! 😊
+Feel free to experiment with the code, or use it as a reference in your programming journey. Thank you for visiting the Hello World Showcase! 😊
 
 ### License
 
