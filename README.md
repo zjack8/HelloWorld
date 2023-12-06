@@ -37,3 +37,7 @@ git clone https://github.com/zjack8/HelloWorld.git
 ```
 
 Feel free to experiment with the code, contribute enhancements, or use it as a reference in your programming journey. Thank you for visiting the Hello World Showcase! 😊
+
+### License
+
+This project is licensed under the [MIT License](LICENSE). I do not intend to seek contributions or collaboration on this project.
