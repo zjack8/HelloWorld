@@ -20,7 +20,13 @@ void quickSort(std::vector<int>& arr, int left, int right) {
 }
 
 void bubbleSort(std::vector<int>& arr, int left, int right) {
-	// TODO
+    for (int i = left; i <= right; ++i) {
+        for (int j = left; j <= right - i - 1; ++j) {
+            if (arr[j] > arr[j + 1]) {
+                std::swap(arr[j], arr[j + 1]);
+            }
+        }
+    }
 }
 
 void selectionSort(std::vector<int>& arr, int left, int right) {
