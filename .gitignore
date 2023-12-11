@@ -1,7 +1,13 @@
+# Compiled Files
 *.exe
 *.class
 *.pdb
 *.jar
 *.o
 
+# VS Code
 .vscode/*
+
+# Django
+*.sqlite3
+*.pyc
