@@ -59,7 +59,24 @@ void selectionSort(std::vector<int>& arr, int left, int right) {
 }
 
 void insertionSort(std::vector<int>& arr, int left, int right) {
-	// TODO
+    // Check if the range is valid
+    if (left < 0 || right > arr.size() || left >= right) {
+        return;
+    }
+
+    for (int i = left + 1; i < right; ++i) {
+        int key = arr[i];
+        int j = i - 1;
+
+        // Move elements that are greater than key to one position ahead
+        while (j >= left && arr[j] > key) {
+            arr[j + 1] = arr[j];
+            --j;
+        }
+
+        // Place the key in its correct position
+        arr[j + 1] = key;
+    }
 }
 
 void heapSort(std::vector<int>& arr, int left, int right) {
