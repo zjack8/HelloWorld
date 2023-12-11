@@ -20,8 +20,15 @@ void quickSort(std::vector<int>& arr, int left, int right) {
 }
 
 void bubbleSort(std::vector<int>& arr, int left, int right) {
-    for (int i = left; i <= right; ++i) {
-        for (int j = left; j <= right - i - 1; ++j) {
+    // Check if the range is valid
+    if (left < 0 || right > arr.size() || left >= right) {
+        return;
+    }
+
+    for (int i = left; i < right - 1; ++i) {
+        // Last i elements are already sorted, so we don't need to check them
+        for (int j = left; j < right - i - 1; ++j) {
+            // Swap if the element found is greater than the next element
             if (arr[j] > arr[j + 1]) {
                 std::swap(arr[j], arr[j + 1]);
             }
@@ -30,7 +37,25 @@ void bubbleSort(std::vector<int>& arr, int left, int right) {
 }
 
 void selectionSort(std::vector<int>& arr, int left, int right) {
-	// TODO
+    // Check if the range is valid
+    if (left < 0 || right > arr.size() || left >= right) {
+        return;
+    }
+
+    for (int i = left; i < right - 1; ++i) {
+        // Assume the current index is the minimum
+        int minIndex = i;
+
+        // Find the index of the minimum element in the unsorted part
+        for (int j = i + 1; j < right; ++j) {
+            if (arr[j] < arr[minIndex]) {
+                minIndex = j;
+            }
+        }
+
+        // Swap the found minimum element with the first unsorted element
+        std::swap(arr[i], arr[minIndex]);
+    }
 }
 
 void insertionSort(std::vector<int>& arr, int left, int right) {
@@ -53,8 +78,8 @@ int main(int argc, char* argv[]) {
 	if (argc > 1) {
 		algorithm = argv[1];
 	} else {
-		std::cerr << "Usage: *.exe algorithm \"num1 num2 num3 ...\"" << std::endl;
-		std::cerr << "For more use *.exe -help" << std::endl;
+		std::cerr << "Usage: ./exe algorithm \"num1 num2 num3 ...\"" << std::endl;
+		std::cerr << "For more use ./exe -help" << std::endl;
 		return 1;
 	}
 
