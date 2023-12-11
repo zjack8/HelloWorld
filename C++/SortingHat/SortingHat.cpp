@@ -131,19 +131,19 @@ int main(int argc, char* argv[]) {
 
 	// Determine which sorting algorithm to use and call the corresponding function
 	if (algorithm == "mergeSort") {
-		mergeSort(arr, 0, arr.size() - 1);
+		mergeSort(arr, 0, arr.size());
 	} else if (algorithm == "quickSort") {
-		quickSort(arr, 0, arr.size() - 1);
+		quickSort(arr, 0, arr.size());
 	} else if (algorithm == "bubbleSort") {
-		bubbleSort(arr, 0, arr.size() - 1);
+		bubbleSort(arr, 0, arr.size());
 	} else if (algorithm == "selectionSort") {
-		selectionSort(arr, 0, arr.size() - 1);
+		selectionSort(arr, 0, arr.size());
 	} else if (algorithm == "insertionSort") {
-		insertionSort(arr, 0, arr.size() - 1);
+		insertionSort(arr, 0, arr.size());
 	} else if (algorithm == "heapSort") {
-		heapSort(arr, 0, arr.size() - 1);
+		heapSort(arr, 0, arr.size());
 	} else if (algorithm == "radixSort") {
-		radixSort(arr, 0, arr.size() - 1);
+		radixSort(arr, 0, arr.size());
 	} else {
 		std::cerr << "Invalid algorithm. Supported algorithms: mergeSort, quickSort, bubbleSort, selectionSort, insertionSort, heapSort, radixSort" << std::endl;
 		return 1;
