@@ -10,19 +10,31 @@ The Hello World Showcase is an ongoing project, continually evolving to encompas
 
 Navigate through the specific language directories to delve deeper into each language's showcase:
 
-- [Assembly](Assembly/README.md)
-- [Bash](Bash/README.md)
-- [C](C/README.md)
-- [C++](C++/README.md)
-- [Haskell](Haskell/README.md)
-- [Java](Java/README.md)
-- [JavaScript](JavaScript/README.md)
-- [Kotlin](Kotlin/README.md)
-- [Python](Python/README.md)
-- [Ruby](Ruby/README.md)
-- [Rust](Rust/README.md)
-- [Scala](Scala/README.md)
-- [TypeScript](TypeScript/README.md)
+- [Assembly](Assembly/)
+- [Bash](Bash/)
+- [C](C/)
+- [C++](C++/)
+- [Haskell](Haskell/)
+- [Java](Java/)
+- [JavaScript](JavaScript/)
+- [Kotlin](Kotlin/)
+- [Python](Python/)
+- [Ruby](Ruby/)
+- [Rust](Rust/)
+- [Scala](Scala/)
+- [TypeScript](TypeScript/)
+
+### Main Projects
+
+Below is a list of the main projects
+
+- [C++ SortingHat](C++/SortingHat/)
+- [Java TicTacToe](Java/TicTacToe/)
+- [Python TicTacToe](Python/TicTacToe/)
+- [Python FlaskServer](Python/FlaskServer/)
+- [Python DjangoServer](Python/DjangoServer/)
+- [Ruby TicTacToe](Ruby/TicTacToe/)
+
 
 ### Work in Progress
 
