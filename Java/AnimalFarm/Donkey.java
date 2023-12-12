@@ -1,4 +1,4 @@
-package Java.AnimalFarm.animals;
+package Java.AnimalFarm;
 
 public class Donkey extends Animal {
 

@@ -1,7 +1,6 @@
 package Java.AnimalFarm;
 
 import java.util.concurrent.*;
-import Java.AnimalFarm.animals.Animal;
 
 public class AnimalFarm {
 
