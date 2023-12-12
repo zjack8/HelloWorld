@@ -4,16 +4,14 @@ public class Animal {
 
 	// Attributes
 	private String name;
-	private int age;
-	private int weight;
+	private int hunger;
 	private int energy;
 
 	// Constructor
-	public Animal(String name, int age, int weight,  int energy) {
+	public Animal(String name) {
 		this.name = name;
-		this.age = age;
-		this.weight = weight;
-		this.energy = energy;
+		this.hunger = 0;
+		this.energy = 0;
 	}
 
 	// Getters and setters for the attributes
@@ -25,20 +23,12 @@ public class Animal {
 		this.name = name;
 	}
 
-	public int getAge() {
-		return age;
+	public int getHunger() {
+		return hunger;
 	}
 
-	public void setAge(int age) {
-		this.age = age;
-	}
-
-	public int getWeight() {
-		return weight;
-	}
-
-	public void setWeight(int weight) {
-		this.weight = weight;
+	public void setHunger(int hunger) {
+		this.hunger = hunger;
 	}
 
 	public int getEnergy() {
@@ -50,23 +40,21 @@ public class Animal {
 	}
 
 	// Methods
-	public void eat(int food) {
+    public synchronized void eat() {
+        hunger = Math.max(0, hunger - 5);
 
-		this.weight += food;
+        System.out.println(name + " is eating. Hunger: " + hunger);
+    }
 
-		System.out.println(name + " is eating.");
-	}
+    public synchronized void sleep() {
+        energy = Math.max(0, energy - 5);
+        System.out.println(name + " is sleeping. Energy: " + energy);
+    }
 
-	public void sleep(int time) {
-
-		this.energy += time;
-
-		System.out.println(name + " is sleeping.");
-	}
-
-	public void makeSound() {
-
-		System.out.println(name + " is making a sound.");
-	}
+    public synchronized void tick() {
+        hunger += 2;
+        energy += 3;
+        System.out.println(name + "'s Hunger: " + hunger + ", Energy: " + energy);
+    }
 
 }
