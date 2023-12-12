@@ -3,7 +3,7 @@ package Java.AnimalFarm;
 public class Animal {
 
 	// Attributes
-	private String name;
+	private final String name;
 	private int hunger;
 	private int energy;
 
@@ -17,10 +17,6 @@ public class Animal {
 	// Getters and setters for the attributes
 	public String getName() {
 		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
 	}
 
 	public int getHunger() {
@@ -41,20 +37,20 @@ public class Animal {
 
 	// Methods
 	public synchronized void eat() {
-		hunger = Math.max(0, hunger - 5);
+		setHunger(Math.max(0, getHunger() - 5));
 
-		System.out.println(name + " is eating. Hunger: " + hunger);
+		System.out.println(getName() + " is eating. Hunger: " + getHunger());
 	}
 
 	public synchronized void sleep() {
-		energy = Math.max(0, energy - 5);
-		System.out.println(name + " is sleeping. Energy: " + energy);
+		setEnergy(Math.max(0, getEnergy() - 5));
+		System.out.println(getName() + " is sleeping. Energy: " + getEnergy());
 	}
 
 	public synchronized void tick() {
-		hunger += 2;
-		energy += 3;
-		System.out.println(name + "'s Hunger: " + hunger + ", Energy: " + energy);
+		setHunger(getHunger() + 2);
+		setEnergy(getEnergy() + 3);
+		System.out.println(getName() + "'s Hunger: " + getHunger() + ", Energy: " + getEnergy());
 	}
 
 }

@@ -1,5 +1,6 @@
 package Java.AnimalFarm;
 
+import java.util.ArrayList;
 import java.util.concurrent.*;
 
 public class AnimalFarm {
@@ -8,28 +9,28 @@ public class AnimalFarm {
 		
 		ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(2);
 
-		Animal lion = new Animal("Lion");
-		Animal elephant = new Animal("Elephant");
+		ArrayList<Animal> animals = new ArrayList<>();
 
-		Runnable eatTask = () -> {
-			lion.eat();
-			elephant.eat();
-		};
+		Animal dog = new Dog("Dog");
+		Animal pig = new Pig("Pig");
 
-		Runnable sleepTask = () -> {
-			lion.sleep();
-			elephant.sleep();
-		};
+		animals.add(dog);
+		animals.add(pig);
 
-		Runnable tickTask = () -> {
-			lion.tick();
-			elephant.tick();
-		};
+		for (Animal animal: animals) {
 
-		// Schedule tasks to run every second
-		scheduler.scheduleAtFixedRate(eatTask, 0, 1, TimeUnit.SECONDS);
-		scheduler.scheduleAtFixedRate(sleepTask, 0, 1, TimeUnit.SECONDS);
-		scheduler.scheduleAtFixedRate(tickTask, 0, 1, TimeUnit.SECONDS);
+			Runnable eatTask = animal::eat;
+
+			Runnable sleepTask = animal::sleep;
+
+			Runnable tickTask = animal::tick;
+
+			// Schedule tasks to run every second
+			scheduler.scheduleAtFixedRate(eatTask, 0, 1, TimeUnit.SECONDS);
+			scheduler.scheduleAtFixedRate(sleepTask, 0, 1, TimeUnit.SECONDS);
+			scheduler.scheduleAtFixedRate(tickTask, 0, 1, TimeUnit.SECONDS);
+
+		}
 
 		// Run the simulation for 3 minutes
 		try {
