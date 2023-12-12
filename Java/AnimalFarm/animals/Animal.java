@@ -1,16 +1,19 @@
 package Java.AnimalFarm.animals;
 
 public class Animal {
-	// Common attributes
+
+	// Attributes
 	private String name;
 	private int age;
 	private int weight;
+	private int energy;
 
 	// Constructor
-	public Animal(String name, int age, int weight) {
+	public Animal(String name, int age, int weight,  int energy) {
 		this.name = name;
 		this.age = age;
 		this.weight = weight;
+		this.energy = energy;
 	}
 
 	// Getters and setters for the attributes
@@ -38,6 +41,15 @@ public class Animal {
 		this.weight = weight;
 	}
 
+	public int getEnergy() {
+		return energy;
+	}
+
+	public void setEnergy(int energy) {
+		this.energy = energy;
+	}
+
+	// Methods
 	public void eat(int food) {
 
 		this.weight += food;
@@ -45,11 +57,15 @@ public class Animal {
 		System.out.println(name + " is eating.");
 	}
 
-	public void sleep() {
+	public void sleep(int time) {
+
+		this.energy += time;
+
 		System.out.println(name + " is sleeping.");
 	}
 
 	public void makeSound() {
+
 		System.out.println(name + " is making a sound.");
 	}
 
