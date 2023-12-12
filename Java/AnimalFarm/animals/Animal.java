@@ -40,21 +40,21 @@ public class Animal {
 	}
 
 	// Methods
-    public synchronized void eat() {
-        hunger = Math.max(0, hunger - 5);
+	public synchronized void eat() {
+		hunger = Math.max(0, hunger - 5);
 
-        System.out.println(name + " is eating. Hunger: " + hunger);
-    }
+		System.out.println(name + " is eating. Hunger: " + hunger);
+	}
 
-    public synchronized void sleep() {
-        energy = Math.max(0, energy - 5);
-        System.out.println(name + " is sleeping. Energy: " + energy);
-    }
+	public synchronized void sleep() {
+		energy = Math.max(0, energy - 5);
+		System.out.println(name + " is sleeping. Energy: " + energy);
+	}
 
-    public synchronized void tick() {
-        hunger += 2;
-        energy += 3;
-        System.out.println(name + "'s Hunger: " + hunger + ", Energy: " + energy);
-    }
+	public synchronized void tick() {
+		hunger += 2;
+		energy += 3;
+		System.out.println(name + "'s Hunger: " + hunger + ", Energy: " + energy);
+	}
 
 }
