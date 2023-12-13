@@ -5,6 +5,9 @@
 *.jar
 *.o
 *.hi
+*.tasty
+*.obj
+TypeScript/**/*.js
 
 # VS Code
 .vscode/*
@@ -12,3 +15,6 @@
 # Django
 *.sqlite3
 *.pyc
+
+# Other
+run-commands.txt
