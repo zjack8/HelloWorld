@@ -4,6 +4,7 @@
 *.pdb
 *.jar
 *.o
+*.hi
 
 # VS Code
 .vscode/*
