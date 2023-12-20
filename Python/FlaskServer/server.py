@@ -15,7 +15,7 @@ data_store = {
 # Root GET Request
 @app.route('/')
 def hello_world():
-	return 'Hello, Flask!'
+	return 'Hello Flask!'
 
 # GET request to retrieve all data
 @app.route('/data', methods=['GET'])
